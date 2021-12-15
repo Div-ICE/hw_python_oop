@@ -106,7 +106,7 @@ class SportsWalking(Training):
 class Swimming(Training):
     """Тренировка: плавание."""
     LEN_STEP: float = 1.38 #константа 1 гребок = 1.38м
-    coeff_calorie_5: int = 1.1 #константа, коэффициент подсчета калорий
+    coeff_calorie_5: float = 1.1 #константа, коэффициент подсчета калорий
     coeff_calorie_6: int = 2 #константа, коэффициент подсчета калорий
     def __init__(self,
                  action: int,
