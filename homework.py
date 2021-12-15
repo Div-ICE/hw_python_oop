@@ -18,8 +18,7 @@ class InfoMessage:
                f'Длительность: {self.duration:.3f} ч.; '
                f'Дистанция: {self.distance:.3f} км; '
                f'Ср. скорость: {self.speed:.3f} км/ч; '
-               f'Потрачено ккал: {self.calories:.3f}. ')
-    pass
+               f'Потрачено ккал: {self.calories:.3f}.')
 
 
 class Training:
@@ -34,7 +33,6 @@ class Training:
                  duration: float,
                  weight: float,
                  ) -> None:
-        pass
         self.action = action
         self.duration = duration
         self.weight = weight
@@ -43,17 +41,14 @@ class Training:
         """Получить дистанцию в км."""
         distance = self.action * self.LEN_STEP / self.M_IN_KM
         return distance
-        pass
 
     def get_mean_speed(self) -> float:
         """Получить среднюю скорость движения."""
         mean_speed = self.get_distance() / self.duration
         return mean_speed
-        pass
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
-        pass
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -63,7 +58,6 @@ class Training:
                               self.get_mean_speed(),
                               self.get_spent_calories())
         return message
-        pass
 
 
 class Running(Training):
@@ -78,8 +72,6 @@ class Running(Training):
                                / self.M_IN_KM * self.duration
                                * self.TIME_MINUTES)
         return spent_callories_run
-        pass
-    pass
 
 
 class SportsWalking(Training):
@@ -102,7 +94,6 @@ class SportsWalking(Training):
                                 * self.coeff_calorie_4 * self.weight)
                                 * self.duration * self.TIME_MINUTES)
         return spent_callories_walk
-    pass
 
 
 class Swimming(Training):
@@ -136,7 +127,6 @@ class Swimming(Training):
         """Получить дистанцию в км."""
         distance = self.action * self.LEN_STEP / self.M_IN_KM
         return distance
-    pass
 
 
 def read_package(workout_type: str, data: list) -> Training:
@@ -144,14 +134,12 @@ def read_package(workout_type: str, data: list) -> Training:
     workouts = {'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking}
     training = workouts[workout_type](*data)
     return training
-    pass
 
 
 def main(training: Training) -> None:
     """Главная функция."""
-    info: InfoMessage = training.show_training_info()
-    print(info.get_message())
-    pass
+    InfoMessage = training.show_training_info()
+    print(InfoMessage.get_message())
 
 
 if __name__ == '__main__':
